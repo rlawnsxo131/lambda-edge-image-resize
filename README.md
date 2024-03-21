@@ -47,7 +47,7 @@ while (true) {
 - AWS sdk 가 3이 되면서 stream 기반으로 바뀜(node: Readable, browser: Blob or ReadableStream)
   - [관련글](https://transang.me/modern-fetch-and-how-to-get-buffer-output-from-aws-sdk-v3-getobjectcommand/)
   - [관련 이슈](https://stackoverflow.com/questions/67100921/migration-aws-sdk-js-v2-to-v3-error-sharp-input-file-is-missing)
-- 2024.03.21
+- sharp
   - 0.33 대 sharp 는 cpu / os 지정해도 문제가 있다(시간날때 자세히 볼까? 말까?).
   - [github issue](https://github.com/lovell/sharp/issues/3870)
   - 다음 명령어로 버전 고정: `npm install --platform=linux --arch=x64 sharp@0.32.6`
