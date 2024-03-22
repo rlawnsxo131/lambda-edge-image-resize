@@ -9,20 +9,21 @@ const s3Client = new S3Client({
 });
 
 async function getObject(key) {
-  const stream = await s3Client.send(
-    new GetObjectCommand({
-      Bucket: BUCKET,
-      Key: key,
-    })
-  )
+  const stream = await s3Client
+    .send(
+      new GetObjectCommand({
+        Bucket: BUCKET,
+        Key: key,
+      })
+    )
     .then((response) => response.Body);
 
   return new Promise((resolve, reject) => {
-    const chunks = []
-    stream.on('data', chunk => chunks.push(chunk))
-    stream.once('end', () => resolve(Buffer.concat(chunks)))
-    stream.once('error', reject)
-  })
+    const chunks = [];
+    stream.on("data", (chunk) => chunks.push(chunk));
+    stream.once("end", () => resolve(Buffer.concat(chunks)));
+    stream.once("error", reject);
+  });
 }
 
 async function resize(key, { format, w }) {
@@ -100,5 +101,3 @@ export const handler = async (event, context, callback) => {
     return callback(null, response);
   }
 };
-
-console.log(querystring.parse("id=1&name=aa").id);
