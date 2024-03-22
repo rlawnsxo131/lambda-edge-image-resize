@@ -44,7 +44,7 @@ while (true) {
 
 ### 트러블 슈팅
 
-- AWS sdk 가 3이 되면서 s3 로 가져오는 이미지 response 가 stream 기반으로 바뀜(node: Readable, browser: Blob or ReadableStream)
+- AWS sdk 가 3이 되면서 s3 로 가져오는 이미지 response body 가 stream 기반으로 바뀜(fetch - node: Readable, browser: Blob or ReadableStream)
   - [관련글](https://transang.me/modern-fetch-and-how-to-get-buffer-output-from-aws-sdk-v3-getobjectcommand/)
   - [관련 이슈](https://stackoverflow.com/questions/67100921/migration-aws-sdk-js-v2-to-v3-error-sharp-input-file-is-missing)
 - sharp
